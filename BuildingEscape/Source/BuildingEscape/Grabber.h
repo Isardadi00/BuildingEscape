@@ -1,5 +1,6 @@
 // Fill out your copyright notice in the Description page of Project Settings.
 
+/// May need #include "Components/InputComponent.h" later on
 #pragma once
 #include "DrawDebugHelpers.h"
 #include "CoreMinimal.h"
@@ -32,4 +33,8 @@ private:
 	float Reach = 100.f;
 	
 	UPhysicsHandleComponent* PhysicsHandle = nullptr;
+	UInputComponent* InputComp = nullptr;
+	
+	//ray-cast and grab what´s in reach
+	void Grab();
 };
