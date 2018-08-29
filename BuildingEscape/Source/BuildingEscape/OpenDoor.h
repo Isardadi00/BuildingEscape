@@ -38,6 +38,8 @@ private:
 	float DoorCloseDelay = 1.f;
 	float LastDoorOpenTime;
 
-	AActor* ActorThatOpens;
 	AActor* Owner; // The owning door
+
+	// return total mass in kG
+	float GetTotalMassOfActorOnPlate();
 };

@@ -65,7 +65,7 @@ void UGrabber::Grab()
 	// alert whether a moveable object is in reach
 	UE_LOG(LogTemp, Warning, TEXT("Grab Pressed"))
 
-	/// LINE TRACE and see if we reach any actor with physics body collision channel set
+		/// LINE TRACE and see if we reach any actor with physics body collision channel set
 	auto HitResult = GetFirstPhysicsBodyInReach();
 	auto ComponentToGrab = HitResult.GetComponent();
 	auto ActorHit = HitResult.GetActor();
