@@ -77,7 +77,7 @@ void UGrabber::Grab()
 			ComponentToGrab,
 			NAME_None, // no bones needed
 			ComponentToGrab->GetOwner()->GetActorLocation(),
-			FRotator::ZeroRotator
+			GrabRotation
 		);
 	}
 }
