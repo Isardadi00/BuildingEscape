@@ -37,7 +37,6 @@ private:
 	
 	//ray-cast and grab what´s in reach
 	void Grab();
-	FRotator GrabRotation = FRotator(90.f, 0.f, 0.f);
 	// called when grab is released
 	void Release();
 
