@@ -53,8 +53,12 @@ void UGrabber::SetupInputComponent()
 void UGrabber::TickComponent(float DeltaTime, ELevelTick TickType, FActorComponentTickFunction* ThisTickFunction)
 {
 	Super::TickComponent(DeltaTime, TickType, ThisTickFunction);
+	
+	if (!PhysicsHandle) { return; }
+	// if the physics handle is attached
 	if (PhysicsHandle->GrabbedComponent) 
 	{
+		// move the object we´re holding
 		PhysicsHandle->SetTargetLocation(GetReachLineEnd());
 	}
 }
@@ -73,6 +77,7 @@ void UGrabber::Grab()
 	/// if we hit something then attach a physics handle
 	if (ActorHit)
 	{
+		if (!PhysicsHandle) { return; }
 		PhysicsHandle->GrabComponentAtLocationWithRotation(
 			ComponentToGrab,
 			NAME_None, // no bones needed
@@ -85,10 +90,9 @@ void UGrabber::Grab()
 /// Release a grabbed object
 void UGrabber::Release()
 {
-	// log the release of the grab
-	UE_LOG(LogTemp, Warning, TEXT("Grab Released"))
-		// release the physics handle from the component
-		PhysicsHandle->ReleaseComponent();
+	if (!PhysicsHandle) { return; }
+	// release the physics handle from the component
+	PhysicsHandle->ReleaseComponent();
 }
 
 /// Create ray-casting (Most of the work is done here)
