@@ -35,14 +35,23 @@ public:
 
 private:
 	UPROPERTY(EditAnywhere)
-	ATriggerVolume* PressurePlate = nullptr;
+	ATriggerVolume* PressurePlate_Table = nullptr;
+
+	UPROPERTY(EditAnywhere)
+	ATriggerVolume* PressurePlate_Chair = nullptr;
 
 	// The owning door
 	AActor* Owner = nullptr; 
 
-	// return total mass in kG
-	float GetTotalMassOfActorOnPlate();
+	// return total mass on pressure plate of chair in kG
+	float GetTotalMassOfActorOnChairPlate();
+
+	// return total mass on pressure plate of table in kG
+	float GetTotalMassOfActorOnTablePlate();
 
 	UPROPERTY(EditAnywhere)
-	float TriggerMass = 30.f;
+	float TriggerMass_Table = 20.f;
+
+	UPROPERTY(EditAnywhere)
+	float TriggerMass_Chair = 10.f;
 };
